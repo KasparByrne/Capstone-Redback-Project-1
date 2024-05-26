@@ -1,0 +1,16 @@
+As we just want to log all sensor data atm and likely in the future will still want to do so,
+we can have a separate file with a single function that gets the current sensor data and logs it.
+We can then embed this function into the main loop.
+We probably won't clean any data on the Rapsberry Pi and only send it to the game to be processed,
+we may need slightly more extensive logging when we receive data for controlling the incline and may
+even want the Raspberry Pi to decide if the request incline value was not achievable before a new incline
+value was requested or something.
+We may also receive less important data like controlling some LED lights in the future so keep that in mind.
+We are also probably going to move away from QMTT and to serial so design so that we can quickly and easily
+change anything that may affect in terms of logging.
+
+In summary:
+- No cleaning data so just dump raw sensor data.
+- Be aware that we will need to receive data also that we will want to log - possibly separately though.
+- Be aware that we may process this data some what for detecting some sort of "realism" errors with the game that we will want to log.
+- Be aware that we are going to move from QMTT to serial.
